@@ -1,0 +1,10 @@
+<div class="filter-display" *ngIf="filters.hasAnyFilterSet()">
+  <span jhiTranslate="entity.filters.set">Following filters are set</span>
+  <ul>
+    <ng-container *ngFor="let filterOption of filters.filterOptions">
+      <li *ngFor="let value of filterOption.values">
+        <span>{{ filterOption.name }}:</span> {{ value }}
+      </li>
+    </ng-container>
+  </ul>
+</div>

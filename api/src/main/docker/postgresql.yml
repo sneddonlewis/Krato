@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: krato-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: krato-app
+  template:
+    metadata:
+      labels:
+        app: krato-app
+    spec:
+      containers:
+        - name: krato-app
+          image: krato
+          env:
+            - name: _JAVA_OPTIONS
+              value: '-Xmx512m -Xms256m'
+            - name: SPRING_PROFILES_ACTIVE
+              value: 'prod,api-docs'
+            - name: MANAGEMENT_METRICS_EXPORT_PROMETHEUS_ENABLED
+              value: 'true'
+            - name: SPRING_DATASOURCE_URL
+              value: 'jdbc:postgresql://krato-postgresql:5432/Krato'
+            - name: SPRING_LIQUIBASE_URL
+              value: 'jdbc:postgresql://krato-postgresql:5432/Krato'
+            - name: JHIPSTER_SLEEP
+              value: '30'

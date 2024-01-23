@@ -1,0 +1,55 @@
+<div>
+  <div>
+    <div>
+      <h1 data-cy="loginTitle">Sign in</h1>
+      <div *ngIf="authenticationError" data-cy="loginError">
+        <strong>Failed to sign in!</strong> Please check your credentials and try again.
+      </div>
+      <form role="form" (ngSubmit)="login()" [formGroup]="loginForm">
+        <div class="mb-3">
+          <label class="username-label" for="username" jhiTranslate="global.form.username.label">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            id="username"
+            placeholder="{{ 'global.form.username.placeholder' | translate }}"
+            formControlName="username"
+            #username
+            data-cy="username"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="password" jhiTranslate="login.form.password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="password"
+            placeholder="{{ 'login.form.password.placeholder' | translate }}"
+            formControlName="password"
+            data-cy="password"
+          />
+        </div>
+
+        <div class="form-check">
+          <label class="form-check-label" for="rememberMe">
+            <input class="form-check-input" type="checkbox" name="rememberMe" id="rememberMe" formControlName="rememberMe" />
+            <span jhiTranslate="login.form.rememberme">Remember me</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" jhiTranslate="login.form.button" data-cy="submit">Sign in</button>
+      </form>
+      <div>
+        <a routerLink="/account/reset/request" data-cy="forgetYourPasswordSelector">Did you forget your password?</a>
+      </div>
+
+      <div>
+        <span>You don't have an account yet?</span>
+        <a routerLink="/account/register">Register a new account</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+
+    ${AnsiColor.GREEN}░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+    ${AnsiColor.GREEN}░░██╗░░██╗░██████╗░░░█████╗░░████████╗░░█████╗░░░
+    ${AnsiColor.GREEN}░░██║░██╔╝░██╔══██╗░██╔══██╗░╚══██╔══╝░██╔══██╗░░
+    ${AnsiColor.GREEN}░░█████═╝░░██████╔╝░███████║░░░░██║░░░░██║░░██║░░
+    ${AnsiColor.GREEN}░░██╔═██╗░░██╔══██╗░██╔══██║░░░░██║░░░░██║░░██║░░
+    ${AnsiColor.GREEN}░░██║░╚██╗░██║░░██║░██║░░██║░░░░██║░░░░╚█████╔╝░░
+    ${AnsiColor.GREEN}░░╚═╝░░╚═╝░╚═╝░░╚═╝░╚═╝░░╚═╝░░░░╚═╝░░░░░╚════╝░░░
+    ${AnsiColor.GREEN}░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+${AnsiColor.BRIGHT_BLUE}:: Krato Strength :: Spring Boot ${spring-boot.version} :: https://kratostrength.com ::${AnsiColor.DEFAULT}

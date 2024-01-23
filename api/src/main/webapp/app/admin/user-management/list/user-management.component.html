@@ -1,0 +1,102 @@
+<div>
+  <h2>
+    <span id="user-management-page-heading" jhiTranslate="userManagement.home.title" data-cy="userManagementPageHeading">Users</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <span jhiTranslate="userManagement.home.refreshListLabel">Refresh list</span>
+      </button>
+      <button class="btn btn-primary jh-create-entity" [routerLink]="['./new']">
+        <span jhiTranslate="userManagement.home.createLabel">Create a new user</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <kt-alert></kt-alert>
+
+  <div class="table-responsive" *ngIf="users">
+    <table class="table table-striped" aria-describedby="user-management-page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="transition()">
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="userManagement.login">Login</span></th>
+          <th scope="col"><span jhiTranslate="userManagement.email">Email</span></th>
+          <th scope="col"></th>
+          <th scope="col">
+            <span jhiTranslate="userManagement.langKey">Language</span>
+          </th>
+          <th scope="col"><span jhiTranslate="userManagement.profiles">Profiles</span></th>
+          <th scope="col">
+            <span jhiTranslate="userManagement.createdDate">Created date</span>
+          </th>
+          <th scope="col">
+            <span jhiTranslate="userManagement.lastModifiedBy">Modified by</span>
+          </th>
+          <th scope="col">
+            <span jhiTranslate="userManagement.lastModifiedDate">Modified date</span>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody *ngIf="users">
+        <tr *ngFor="let user of users; trackBy: trackIdentity">
+          <td>
+            <a [routerLink]="['./', user.login, 'view']">{{ user.id }}</a>
+          </td>
+          <td>{{ user.login }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <button
+              class="btn btn-danger btn-sm"
+              (click)="setActive(user, true)"
+              *ngIf="!user.activated"
+              jhiTranslate="userManagement.deactivated"
+            >
+              Deactivated
+            </button>
+            <button
+              (click)="setActive(user, false)"
+              *ngIf="user.activated"
+              [disabled]="!currentAccount || currentAccount.login === user.login"
+              jhiTranslate="userManagement.activated"
+            >
+              Activated
+            </button>
+          </td>
+          <td>{{ user.langKey }}</td>
+          <td>
+            <div *ngFor="let authority of user.authorities">
+              <span>{{ authority }}</span>
+            </div>
+          </td>
+          <td>{{ user.createdDate | date: 'dd/MM/yy HH:mm' }}</td>
+          <td>{{ user.lastModifiedBy }}</td>
+          <td>{{ user.lastModifiedDate | date: 'dd/MM/yy HH:mm' }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['./', user.login, 'view']">
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['./', user.login, 'edit']" queryParamsHandling="merge" class="btn btn-primary btn-sm">
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="button" (click)="deleteUser(user)" [disabled]="!currentAccount || currentAccount.login === user.login">
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="users">
+    <div>
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+  </div>
+</div>

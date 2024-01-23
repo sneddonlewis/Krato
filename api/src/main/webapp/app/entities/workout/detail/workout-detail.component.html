@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="workout">
+      <h2 data-cy="workoutDetailsHeading"><span jhiTranslate="kratoApp.workout.detail.title">Workout</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <kt-alert></kt-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ workout.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="kratoApp.workout.repetitions">Repetitions</span></dt>
+        <dd>
+          <span>{{ workout.repetitions }}</span>
+        </dd>
+        <dt><span jhiTranslate="kratoApp.workout.negatives">Negatives</span></dt>
+        <dd>
+          <span>{{ workout.negatives }}</span>
+        </dd>
+        <dt><span jhiTranslate="kratoApp.workout.time">Time</span></dt>
+        <dd>
+          <span>{{ workout.time | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="kratoApp.workout.exercise">Exercise</span></dt>
+        <dd>
+          <div *ngIf="workout.exercise">
+            <a [routerLink]="['/exercise', workout.exercise.id, 'view']">{{ workout.exercise.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="kratoApp.workout.appUser">App User</span></dt>
+        <dd>
+          <div *ngIf="workout.appUser">
+            <a [routerLink]="['/app-user', workout.appUser.id, 'view']">{{ workout.appUser.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/workout', workout.id, 'edit']" class="btn btn-primary">
+        <span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

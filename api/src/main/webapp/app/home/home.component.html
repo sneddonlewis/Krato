@@ -1,0 +1,8 @@
+<ng-container *ngIf="account !== null">
+  <kt-workouts-today></kt-workouts-today>
+</ng-container>
+
+<ng-container *ngIf="account === null">
+  <button mat-button (click)="login()">login</button>
+  <button mat-button routerLink="/account/register">register</button>
+</ng-container>
