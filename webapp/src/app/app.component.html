@@ -6,9 +6,10 @@
     </a>
     <ng-container *ngIf="account === null">
       <button mat-button (click)="login()">login</button>
-      <a routerLink="/account/register" routerLinkActive="active" (click)="collapseNavbar()" data-cy="register">
+      <button mat-button routerLink="/account/register" routerLinkActive="active" (click)="collapseNavbar()"
+        data-cy="register">
         <span>Register</span>
-      </a>
+      </button>
     </ng-container>
     <ng-container *ngIf="account !== null">
       <ul aria-labelledby="account-menu">
@@ -26,6 +27,7 @@
       <button mat-button (click)="logout()">logout</button>
     </ng-container>
   </mat-toolbar-row>
+  <kt-login></kt-login>
 
   <!-- <mat-toolbar-row *jhiHasAnyAuthority="'ROLE_ADMIN'"> -->
   <!--   <ul aria-labelledby="entity-menu"> -->

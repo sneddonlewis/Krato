@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'kt-root',
@@ -12,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
     RouterOutlet,
     MatToolbarModule,
     MatButtonModule,
+    LoginComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
@@ -26,18 +28,15 @@ export class AppComponent {
   entitiesNavbarItems: any[] = [];
 
   constructor(
-  ) {
-  }
-
-  ngOnInit(): void {
-  }
+    private router: Router,
+  ) {}
 
   collapseNavbar(): void {
     this.isNavbarCollapsed = true;
   }
 
   login(): void {
-    // this.router.navigate(['/login']);
+    console.log('logging in')
   }
 
   logout(): void {
