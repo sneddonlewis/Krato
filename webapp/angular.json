@@ -22,7 +22,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "kt",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
