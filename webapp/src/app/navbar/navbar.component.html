@@ -1,12 +1,15 @@
 <mat-toolbar>
   <mat-toolbar-row>
+    <span class="flex-container">
     <a (click)="navigateHome()" style="cursor: pointer">
       <span>Krato</span>
     </a>
+      <span class="spacer"></span>
     <ng-container>
       <button mat-button (click)="navigateTimer()">
         <span>Timer</span>
       </button>
     </ng-container>
+    </span>
   </mat-toolbar-row>
 </mat-toolbar>
