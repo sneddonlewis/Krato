@@ -4,6 +4,7 @@ import { Router, RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({
   selector: 'kt-root',
@@ -14,6 +15,7 @@ import { LoginComponent } from './login/login.component';
     MatToolbarModule,
     MatButtonModule,
     LoginComponent,
+    NavbarComponent
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
