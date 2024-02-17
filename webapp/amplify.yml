@@ -1,7 +1,7 @@
 version: 1
 applications:
   - appRoot: webapp
-  - frontend:
+    frontend:
       phases:
         preBuild:
           commands:
@@ -12,7 +12,7 @@ applications:
           commands:
             - npm run build
       artifacts:
-        baseDirectory: /dist/app1
+        baseDirectory: dist/app1
         files:
           - '**/*'
       cache:
