@@ -12,7 +12,7 @@ applications:
           commands:
             - npm run build
       artifacts:
-        baseDirectory: dist/app1
+        baseDirectory: dist/webapp
         files:
           - '**/*'
       cache:
