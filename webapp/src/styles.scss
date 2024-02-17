@@ -1,1 +1,8 @@
-@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+.center-container {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

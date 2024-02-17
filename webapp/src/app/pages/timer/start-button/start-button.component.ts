@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { interval, map, Subscription, take, tap } from 'rxjs';
 
@@ -11,13 +11,17 @@ import { interval, map, Subscription, take, tap } from 'rxjs';
 })
 export class StartButtonComponent implements OnDestroy {
   private subs: Subscription[] = []
-  countDown = 10
+  private countDown = 10
   private countDown$ = interval(1000)
     .pipe(
       take(this.countDown - 1),
       map(value => this.countDown - value),
     )
   countDownDisplay = 'Go'
+
+  // at end of countdown, signal to enclosing component that
+  // the countdown is ended so that this component can be
+  // destroyed and the timer can start
 
   constructor() {
   }

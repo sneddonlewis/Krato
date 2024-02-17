@@ -1,1 +1,12 @@
-<kt-for-time-timer></kt-for-time-timer>
+<mat-form-field>
+  <mat-label>Timer Type</mat-label>
+  <mat-select [(ngModel)]="selectedValue">
+    <mat-option *ngFor="let timer of timers" [value]="timer.value">
+      {{ timer.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<kt-for-time-timer *ngIf="selectedValue === 'for-time-0'"></kt-for-time-timer>
+<kt-emom-timer *ngIf="selectedValue === 'emom-1'"></kt-emom-timer>
+<kt-amrap-timer *ngIf="selectedValue === 'amrap-2'"></kt-amrap-timer>
