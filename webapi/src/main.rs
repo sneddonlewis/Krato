@@ -12,6 +12,7 @@ use axum::routing::{get, post};
 use axum::{Extension, Json, Router};
 use dotenv::dotenv;
 use repo::user_repo::{DynUserRepo, UserRepoImpl};
+use std::fs;
 use std::sync::Arc;
 use tokio::net::TcpListener;
 use view_models::UserCreateRequest;
@@ -46,15 +47,14 @@ fn load_configuration() -> Result<AppConfig, config::ConfigError> {
 async fn main() {
     dotenv().ok();
     let config = load_configuration().unwrap();
-    println!("KID: {}", config.jwt_kid);
-    println!("JWT private key path: {}", config.jwt_private_key);
-    println!("JWT public key path: {}", config.jwt_public_key);
-    println!("DB Connection string: {}", config.database_url);
+    let jwt_private_key = fs::read_to_string(&config.jwt_private_key).unwrap();
+    let jwt_public_key = fs::read_to_string(&config.jwt_public_key).unwrap();
+
     let app_state = AppState {
         user_repo: Arc::new(UserRepoImpl) as DynUserRepo,
     };
 
-    let jwks = Jwks(vec![get_public_jwk()]);
+    let jwks = Jwks(vec![get_public_jwk(jwt_public_key, config.jwt_kid)]);
 
     let router = Router::new()
         .route("/api/account", get(account))

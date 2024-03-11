@@ -62,15 +62,15 @@ fn jwt_encode(username: &str, private_key: &[u8]) -> Result<String, ()> {
     Ok(token)
 }
 
-pub fn get_public_jwk() -> Jwk {
-    get_jwk(KEY_PUB.as_bytes())
+pub fn get_public_jwk(public_key: String, kid: String) -> Jwk {
+    get_jwk(public_key.as_bytes(), kid)
 }
 
-fn get_jwk(pub_key: &[u8]) -> Jwk {
+fn get_jwk(pub_key: &[u8], kid: String) -> Jwk {
     let rsa = Rsa::public_key_from_pem(pub_key).unwrap();
     Jwk {
         encryption_algorithm: ALGORITHM,
-        key_id: KID.to_string(),
+        key_id: kid,
         key_type: "RSA".to_string(),
         intended_use: "sig".to_string(),
         modulus_value: general_purpose::URL_SAFE_NO_PAD.encode(rsa.n().to_vec()),
@@ -96,21 +96,6 @@ pub struct Claims {
     #[serde(with = "ts_seconds")]
     pub exp: DateTime<Utc>,
 }
-
-const KEY_PUB: &str = r#"-----BEGIN PUBLIC KEY-----
-MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAzdue26JnkXQ2x/f6TpEm
-ysKEohmuPf40KoZT4x3zMO0sIas7UwBzjR9+PZ8wTFNhiOmf6IksT0xeI4MVNK+z
-ewLWGsT7dRW/2iC956/WbhvkkZXlHK2qHpgx9t2DJ8fnPjUthvTrojPGEbsGvU+S
-aGwP9jCfy6KPfkgFMNO2w+LwxnDErUVXE1Jr0jhNmkAFtewVW/8V7dFRYYPSOoip
-rBEdtwVSnZb3uq+Zxk+EFeUvoSxcR7UXBdWnO/9/TEVZti+VzJwRTICpAvaSjXem
-XYuVHmjxOmN0OhXr5EDJMbGa4OLXPW7j36fdcTZr1jOGv7QT+bcKcd+oSTVyS7ng
-GtMRDWdLYQv+B+PZLX+3DED8WVIFn+vq3ci8en2L+JRqvUFIgjkaxjmk7SaRYlsu
-+a2sl26ugYoFttdKEM6U1SOeDkKZlK14PaUf2az/vyX3drEHowrwtnvF6l7m9cho
-g80RI4aCM29bGrb6+8/Z7WqOVhPqYHN0mF/SmaDbYo+4qakpzVWRdOnoCCG/URZU
-DzEX1NdYwdBCk22yKA80/b7oWyI3BtIYpTMZWZf0HjaYb2zGAH3ysUWhhAG+pj/9
-g0SWDty89gDqAr2sIxO0RzdiEXWk9UG6P+lY6uqpcVXBs27HwqcHVoevavMyUg8h
-bnMtE4bIgcpUYWkZhMSzEA0CAwEAAQ==
------END PUBLIC KEY-----"#;
 
 pub(crate) const KEY_PRIV: &str = r#"
 -----BEGIN RSA PRIVATE KEY-----
