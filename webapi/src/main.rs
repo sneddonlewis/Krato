@@ -13,6 +13,7 @@ use axum::{Extension, Json, Router};
 use repo::user_repo::{DynUserRepo, UserRepoImpl};
 use std::sync::Arc;
 use tokio::net::TcpListener;
+use view_models::UserCreateRequest;
 
 use crate::middleware::AuthorizationMiddleware;
 use crate::view_models::User;
@@ -74,7 +75,10 @@ async fn login(State(state): State<AppState>, Json(request): Json<User>) -> impl
     }
 }
 
-async fn create_account(State(state): State<AppState>) -> impl IntoResponse {
-    let acc = state.user_repo.create().await.unwrap();
+async fn create_account(
+    State(state): State<AppState>,
+    Json(request): Json<UserCreateRequest>,
+) -> impl IntoResponse {
+    let acc = state.user_repo.create(request).await.unwrap();
     Json(acc)
 }

@@ -1,4 +1,4 @@
-use crate::view_models::User;
+use crate::view_models::{User, UserCreateRequest};
 use async_trait::async_trait;
 use std::sync::Arc;
 
@@ -10,7 +10,7 @@ pub type UserRepoError = Box<dyn std::error::Error + Send + Sync + 'static>;
 pub trait UserRepo {
     async fn find(&self, card_num: String) -> Result<User, UserRepoError>;
 
-    async fn create(&self) -> Result<User, UserRepoError>;
+    async fn create(&self, request: UserCreateRequest) -> Result<User, UserRepoError>;
 }
 
 pub struct UserRepoImpl;
@@ -24,10 +24,10 @@ impl UserRepo for UserRepoImpl {
         })
     }
 
-    async fn create(&self) -> Result<User, UserRepoError> {
+    async fn create(&self, request: UserCreateRequest) -> Result<User, UserRepoError> {
         Ok(User {
-            username: "root".to_string(),
-            password: "root".to_string(),
+            username: request.username,
+            password: request.password,
         })
     }
 }
