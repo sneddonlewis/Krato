@@ -14,8 +14,6 @@ use repo::account_repo::{AccountRepoImpl, DynAccountRepo};
 use repo::user_repo::{DynUserRepo, UserRepoImpl};
 use std::sync::Arc;
 use tokio::net::TcpListener;
-// use tower_http::cors::CorsLayer;
-use tower_http::services::{ServeDir, ServeFile};
 
 use crate::middleware::AuthorizationMiddleware;
 use crate::view_models::{AccountDetailView, User};
@@ -35,26 +33,15 @@ async fn main() {
 
     let jwks = Jwks(vec![get_public_jwk()]);
 
-    // Define CORS middleware
-    // let cors_middleware = CorsLayer::very_permissive();
-
-    let frontend_assets_dir = "web_client/dist/web_client/browser/";
-    let index_html = "web_client/dist/web_client/browser/index.html";
-    let serve_dir =
-        ServeDir::new(frontend_assets_dir).not_found_service(ServeFile::new(index_html));
-
     let router = Router::new()
-        // .layer(cors_middleware)
         .route("/api/account", get(account))
         .route_layer(from_extractor::<AuthorizationMiddleware>())
         .route("/api/new", get(create_account))
         .route("/api/login", post(login))
         .layer(Extension(jwks))
-        .with_state(app_state)
-        .nest_service("/", serve_dir.clone())
-        .fallback_service(serve_dir);
+        .with_state(app_state);
 
-    let listener = TcpListener::bind("0.0.0.0:3000").await.unwrap();
+    let listener = TcpListener::bind("127.0.0.1:8000").await.unwrap();
 
     println!("listening on {}", listener.local_addr().unwrap());
     axum::serve(listener, router).await.unwrap();
