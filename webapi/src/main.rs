@@ -10,6 +10,7 @@ use axum::middleware::from_extractor;
 use axum::response::IntoResponse;
 use axum::routing::{get, post};
 use axum::{Extension, Json, Router};
+use dotenv::dotenv;
 use repo::user_repo::{DynUserRepo, UserRepoImpl};
 use std::sync::Arc;
 use tokio::net::TcpListener;
@@ -23,8 +24,32 @@ struct AppState {
     pub user_repo: DynUserRepo,
 }
 
+#[derive(serde::Deserialize)]
+struct AppConfig {
+    jwt_kid: String,
+    jwt_private_key: String,
+    jwt_public_key: String,
+    database_url: String,
+}
+
+fn load_configuration() -> Result<AppConfig, config::ConfigError> {
+    let source = config::Environment::default();
+    let config: AppConfig = config::Config::builder()
+        .add_source(source)
+        .build()?
+        .try_deserialize()?;
+
+    Ok(config)
+}
+
 #[tokio::main]
 async fn main() {
+    dotenv().ok();
+    let config = load_configuration().unwrap();
+    println!("KID: {}", config.jwt_kid);
+    println!("JWT private key path: {}", config.jwt_private_key);
+    println!("JWT public key path: {}", config.jwt_public_key);
+    println!("DB Connection string: {}", config.database_url);
     let app_state = AppState {
         user_repo: Arc::new(UserRepoImpl) as DynUserRepo,
     };
