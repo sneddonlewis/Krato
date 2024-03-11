@@ -10,24 +10,21 @@ use axum::middleware::from_extractor;
 use axum::response::IntoResponse;
 use axum::routing::{get, post};
 use axum::{Extension, Json, Router};
-use repo::account_repo::{AccountRepoImpl, DynAccountRepo};
 use repo::user_repo::{DynUserRepo, UserRepoImpl};
 use std::sync::Arc;
 use tokio::net::TcpListener;
 
 use crate::middleware::AuthorizationMiddleware;
-use crate::view_models::{AccountDetailView, User};
+use crate::view_models::User;
 
 #[derive(Clone)]
 struct AppState {
-    pub account_repo: DynAccountRepo,
     pub user_repo: DynUserRepo,
 }
 
 #[tokio::main]
 async fn main() {
     let app_state = AppState {
-        account_repo: Arc::new(AccountRepoImpl) as DynAccountRepo,
         user_repo: Arc::new(UserRepoImpl) as DynUserRepo,
     };
 
@@ -51,10 +48,10 @@ async fn account(
     Extension(claims): Extension<auth::Authorized>,
     State(state): State<AppState>,
 ) -> impl IntoResponse {
-    let acc = state.account_repo.create().await.unwrap();
     let name_claim = claims.0.username;
     println!("claim username: {:?}", name_claim);
-    Json(AccountDetailView::from(acc)).into_response()
+    let user_account = state.user_repo.find(name_claim).await.unwrap();
+    Json(user_account).into_response()
 }
 
 async fn login(State(state): State<AppState>, Json(request): Json<User>) -> impl IntoResponse {
