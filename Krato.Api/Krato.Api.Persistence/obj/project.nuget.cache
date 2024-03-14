@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "EbH62x3K0qLNo2NctgBGAVXRhIqgkCNaCB3+99KKzgbPcAHKq72lhv1snraabIm8gkl2lDxialFnSrF60A8U+A==",
+  "dgSpecHash": "xpv+LiT4FU/NZ6xljNU/tXvmZilBXiYxq3zbIU2pfKalIwtA3haSUulpGPzcP5EbIz2ThgH1us+RZ5FTm6T/Hg==",
   "success": true,
   "projectFilePath": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Persistence/Krato.Api.Persistence.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/lewis/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.0/microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "/Users/lewis/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

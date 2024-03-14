@@ -4,14 +4,77 @@
     "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Persistence/Krato.Api.Persistence.csproj": {}
   },
   "projects": {
-    "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Persistence/Krato.Api.Persistence.csproj": {
+    "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Application/Krato.Api.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Persistence/Krato.Api.Persistence.csproj",
-        "projectName": "Krato.Api.Persistence",
-        "projectPath": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Persistence/Krato.Api.Persistence.csproj",
+        "projectUniqueName": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Application/Krato.Api.Application.csproj",
+        "projectName": "Krato.Api.Application",
+        "projectPath": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Application/Krato.Api.Application.csproj",
         "packagesPath": "/Users/lewis/.nuget/packages/",
-        "outputPath": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Persistence/obj/",
+        "outputPath": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/lewis/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Domain/Krato.Api.Domain.csproj": {
+                "projectPath": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Domain/Krato.Api.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Domain/Krato.Api.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Domain/Krato.Api.Domain.csproj",
+        "projectName": "Krato.Api.Domain",
+        "projectPath": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Domain/Krato.Api.Domain.csproj",
+        "packagesPath": "/Users/lewis/.nuget/packages/",
+        "outputPath": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/lewis/.nuget/NuGet/NuGet.Config"
@@ -37,6 +100,69 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Persistence/Krato.Api.Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Persistence/Krato.Api.Persistence.csproj",
+        "projectName": "Krato.Api.Persistence",
+        "projectPath": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Persistence/Krato.Api.Persistence.csproj",
+        "packagesPath": "/Users/lewis/.nuget/packages/",
+        "outputPath": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Persistence/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/lewis/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Application/Krato.Api.Application.csproj": {
+                "projectPath": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Application/Krato.Api.Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

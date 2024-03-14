@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Krato.Api.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c1b7f5705f467ef225cbaa47eeaf59ed16b83c3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6279b45ccd6f4304392fc994ba34595c4abc5b93")]
 [assembly: System.Reflection.AssemblyProductAttribute("Krato.Api.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Krato.Api.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
