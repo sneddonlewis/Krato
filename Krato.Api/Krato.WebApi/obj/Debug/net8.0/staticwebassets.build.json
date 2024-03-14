@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "MBCj0AjsnSZDu5xJFROkc7vZ7xMfoOQAEPsx7+pkzPI=",
+  "Source": "Krato.WebApi",
+  "BasePath": "_content/Krato.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

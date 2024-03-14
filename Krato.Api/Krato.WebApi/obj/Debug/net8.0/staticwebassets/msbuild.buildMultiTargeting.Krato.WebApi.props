@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Krato.WebApi.props" />
+</Project>

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "k92cc4CzSAkLaJ5NEMku9Rphe/eCuVr167Kh94078JNgVA8MD+UAtY++M9ZeLf5EJYBMIg3asZTbiJF/whJBjw==",
+  "success": true,
+  "projectFilePath": "/Users/lewis/workspace/projects/Krato/Krato.Api/Krato.Api.Application/Krato.Api.Application.csproj",
+  "expectedPackageFiles": [
+    "/Users/lewis/.nuget/packages/microsoft.extensions.dependencyinjection/8.0.0/microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+    "/Users/lewis/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

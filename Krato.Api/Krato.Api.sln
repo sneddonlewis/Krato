@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krato.WebApi", "Krato.WebApi\Krato.WebApi.csproj", "{A6BC8EAE-0DA2-44E5-BC11-231C1EB0FF8B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krato.Api.Application", "Krato.Api.Application\Krato.Api.Application.csproj", "{AE7C67B4-89FE-4447-A6D3-F293CC8BDFFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krato.Api.Domain", "Krato.Api.Domain\Krato.Api.Domain.csproj", "{4598B9D1-EBDD-4AF7-BEE6-2BB42A1EDBF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krato.Api.Infrastructure", "Krato.Api.Infrastructure\Krato.Api.Infrastructure.csproj", "{757E4875-18B7-474F-A9ED-E1D8F916F371}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Krato.Api.Persistence", "Krato.Api.Persistence\Krato.Api.Persistence.csproj", "{31298126-9F55-4CE2-B478-4A2C5A687C5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A6BC8EAE-0DA2-44E5-BC11-231C1EB0FF8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6BC8EAE-0DA2-44E5-BC11-231C1EB0FF8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6BC8EAE-0DA2-44E5-BC11-231C1EB0FF8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6BC8EAE-0DA2-44E5-BC11-231C1EB0FF8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE7C67B4-89FE-4447-A6D3-F293CC8BDFFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE7C67B4-89FE-4447-A6D3-F293CC8BDFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE7C67B4-89FE-4447-A6D3-F293CC8BDFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE7C67B4-89FE-4447-A6D3-F293CC8BDFFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4598B9D1-EBDD-4AF7-BEE6-2BB42A1EDBF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4598B9D1-EBDD-4AF7-BEE6-2BB42A1EDBF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4598B9D1-EBDD-4AF7-BEE6-2BB42A1EDBF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4598B9D1-EBDD-4AF7-BEE6-2BB42A1EDBF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{757E4875-18B7-474F-A9ED-E1D8F916F371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{757E4875-18B7-474F-A9ED-E1D8F916F371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{757E4875-18B7-474F-A9ED-E1D8F916F371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{757E4875-18B7-474F-A9ED-E1D8F916F371}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31298126-9F55-4CE2-B478-4A2C5A687C5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31298126-9F55-4CE2-B478-4A2C5A687C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31298126-9F55-4CE2-B478-4A2C5A687C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31298126-9F55-4CE2-B478-4A2C5A687C5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
